@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+<!-- $pages -->
+{{ $pages := union .RegularPages .Sections }}
+<!---->
+{{ if .IsHome }} {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ end }}
+
+<!-- Articles -->
+{{ $paginator := .Paginate $pages }}
+<ul class="article-list">
+  {{ range $index, $page := $paginator.Pages }}
+    <li class="article-list-item {{ with site.Params.chalk.scrollappear_enabled }}scrollappear{{ end }}">
+      <a href="{{ .Permalink }}" title="{{ .Title }}">
+        <h5>
+          {{ .Title }}
+          {{ partial "svg-icon.html" (dict "context" . "icon" "arrow-right") }}
+        </h5>
+      </a>
+      <p>
+        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+      </p>
+      {{ partial "article/info-footer.html" . }}
+    </li>
+  {{ end }}
+
+  <!-- Main Nav -->
+  {{ if gt $paginator.TotalPages 1 }}
+    <li class="article-pagination {{ with site.Params.chalk.scrollappear_enabled }}scrollappear{{ end }}">
+      {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="article-pagination-left">{{ partial "svg-icon.html" (dict "context" . "icon" "arrow-left") }} Newer posts</a>
+      {{ end }}
+      {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="article-pagination-right">Older posts {{ partial "svg-icon.html" (dict "context" . "icon" "arrow-right") }}</a>
+      {{ end }}
+    </li>
+  {{ end }}
+</ul>
+
+{{ end }}

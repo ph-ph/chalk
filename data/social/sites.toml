@@ -1,0 +1,83 @@
+[twitter]
+url = "https://twitter.com/"
+title = "Twitter"
+
+[github]
+url = "https://github.com/"
+title = "GitHub"
+
+[facebook]
+url = "https://www.facebook.com/"
+title="Facebook"
+
+[medium]
+url = "https://medium.com/"
+title="Medium"
+
+[gitlab]
+url="https://gitlab.com/"
+title="GitLab"
+
+[bitbucket]
+url="https://bitbucket.org/"
+title="Bitbucket"
+
+[stackoverflow]
+url="https://stackoverflow.com/users/"
+title="Stack Overflow"
+
+[keybase]
+url="https://keybase.io/"
+title="Keybase"
+
+[docker]
+url="https://hub.docker.com/r/"
+title="Docker Hub"
+
+[linkedin]
+url="https://www.linkedin.com/in/"
+title="LinkedIn"
+
+[dribble]
+url="https://dribbble.com/"
+title="Dribbble"
+
+[flickr]
+url="https://www.flickr.com/photos/"
+title="Flickr"
+
+[instagram]
+url="https://instagram.com/"
+title="Instagram"
+
+[spotify]
+url="https://play.spotify.com/user/"
+title="Spotify"
+
+[youtube]
+url="https://www.youtube.com/user/"
+title="Youtube"
+
+[twitch]
+url="https://www.twitch.tv/"
+title="Twitch"
+
+[steam]
+url="https://steamcommunity.com/id/"
+title="Steam"
+
+[discord]
+url="https://discord.gg/"
+title="Discord Server"
+
+[bitcoin]
+url="https://blockexplorer.com/address/"
+title="Bitcoin"
+
+[ethereum]
+url="https://etherscan.io/address/"
+title="Ethereum"
+
+[email]
+url="mailto:"
+title="Email"

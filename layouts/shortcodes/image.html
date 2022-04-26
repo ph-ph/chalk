@@ -1,0 +1,12 @@
+{{ $image := resources.Get (.Get "path")  }}
+{{ $image_detail := resources.Get (or (.Get "path_detail") (.Get "path")) }}
+
+{{ with and $image $image_detail }}
+  <a href="{{ $image_detail.RelPermalink }}">
+    <img src="{{ $image.RelPermalink }}" alt="{{ $.Get `alt` }}" class="zooming"
+      data-rjs="{{ $image_detail.RelPermalink }}"
+      data-zooming-width="{{ $image_detail.Width }}"
+      data-zooming-height="{{ $image_detail.Height }}"
+    />
+  </a>
+{{ end }}

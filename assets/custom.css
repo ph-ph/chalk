@@ -1,0 +1,9 @@
+/* Place custom css here. */
+figure {
+  margin: 0;
+}
+
+.article-content figcaption p {
+  font-size: 0.8rem;
+  margin-top: -25px;
+}

@@ -1,0 +1,92 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Title -->
+  <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}</title>
+
+  <!-- Meta -->
+  {{ if eq .Kind "page" }}
+    <meta name="description" content="{{ .Summary }}" />
+    <meta name="author" content="{{ .Params.Author | default site.Author.name }}" />
+  {{ else }}
+    <meta name="description" content="{{ site.Params.description }}" />
+    <meta name="author" content="{{ site.Author.name }}" />
+  {{ end }}
+
+  <!-- Styles & Scripts -->
+
+  <!-- Chalk styles -->
+  {{ $favicon := 0 }}
+  {{ $appleicon := 0 }}
+
+  {{ if eq site.Params.chalk.blog_theme "light" }}
+    {{ $favicon = resources.Get "images/favicon-light.ico" }}
+    {{ $appleicon = resources.Get "images/apple-touch-icon-light.png" }}
+  {{ else }}
+    {{ $favicon = resources.Get "images/favicon-dark.ico" }}
+    {{ $appleicon = resources.Get "images/apple-touch-icon-dark.png" }}
+  {{ end  }}
+
+  <link rel="icon" type="image/x-icon" href="{{ $favicon.Permalink }}">
+  <link rel="apple-touch-icon" href="{{ $appleicon.Permalink }}">
+
+  {{ $light_css := resources.Get "stylesheets/light.scss" | resources.ToCSS }}
+  {{ $dark_css := resources.Get "stylesheets/dark.scss" | resources.ToCSS }}
+
+  {{ if site.Params.chalk.theme_toggle }}
+    <!-- If theme toggle is enabled, default scheme is always light -->
+    <link rel="stylesheet" type="text/css" title="light" id="light" href="{{ $light_css.Permalink }}" />
+    <link rel="stylesheet" type="text/css" title="dark" id="dark" href="{{ $dark_css.Permalink }}" disabled="true" />
+  {{ else }}
+    {{ $chalk_css := 0 }}
+    {{ if eq site.Params.chalk.blog_theme "light" }}
+      {{ $chalk_css = $light_css }}
+    {{ else }}
+      {{ $chalk_css = $dark_css }}
+    {{ end  }}
+    <link rel="stylesheet" href="{{ $chalk_css.Permalink }}">
+  {{ end  }}
+
+  <!--Override with my styles where needed-->
+  {{ $css := resources.Get "custom.css" | minify }}
+  <link rel="preload stylesheet" as="style" href="{{ $css.Permalink }}" />
+
+  <!--Syntax highlighting?-->
+
+  {{ if and .IsPage (not site.Params.disableHLJS) }}
+  <link rel="preload stylesheet" as="style" href="{{ `an-old-hope.min.css` | absURL }}" />
+  <script
+    defer
+    src="{{ `highlight.min.js` | absURL }}"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  {{ end }}
+
+  <!-- Generator -->
+  {{ hugo.Generator }}
+
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats }}
+  <link
+    rel="{{ .Rel }}"
+    type="{{ .MediaType.Type }}"
+    href="{{ .Permalink }}"
+    title="{{ site.Title }}"
+  />
+  {{ end }}
+
+  <!-- Misc -->
+  {{ if or hugo.IsProduction (eq site.Params.env "production") }}
+  <!---->
+  {{ template "_internal/google_analytics_async.html" . }}
+  <!---->
+  {{ template "_internal/opengraph.html" . }}
+  <!---->
+  {{ template "_internal/schema.html" . }}
+  <!---->
+  {{ template "_internal/twitter_cards.html" . }}
+  <!---->
+  {{ end }}
+</head>

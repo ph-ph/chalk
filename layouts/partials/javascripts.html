@@ -1,0 +1,31 @@
+{{ with site.Params.ga_analytics }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', '{{ . }}');
+</script>
+{{ end }}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{ (resources.Get `javascripts/zooming.min.js`).Permalink }}"></script>
+<script src="{{ (resources.Get `javascripts/retina.min.js`).Permalink }}"></script>
+<script src="{{ (resources.Get `javascripts/svgxuse.min.js`).Permalink }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+<script src="{{ (resources.Get `javascripts/vendor.js` | resources.Minify ).Permalink }}" ></script>
+
+{{ if not site.Params.chalk.local_fonts }}
+  <script src="{{ (resources.Get `javascripts/webfonts.js` | js.Build | resources.Minify ).Permalink }}"></script>
+{{ end }}
+
+{{ with site.Params.chalk.scrollappear_enabled }}
+  <script src="{{ (resources.Get `javascripts/scrollappear.js` | resources.Minify ).Permalink }}"></script>
+{{ end }}
+
+<script src="{{ (resources.Get `javascripts/application.js` | resources.Minify ).Permalink }}"></script>
+
+{{ with site.Params.chalk.theme_toggle }}
+  <script src="{{ (resources.Get `javascripts/themetoggle.js` | resources.Minify ).Permalink }}"></script>
+{{ end }}
