@@ -40,13 +40,13 @@ Theme-specific configuration lives under `params.chalk` section of your config.t
 
 Available settings:
 
-* `about_enabled` - set to true if you wish to show an icon in the navigation that redirects to the about page
-* `discus_identifier` - set to your Disqus identifier (NOTE: I may remove this in the future in favor of standard Hugo Disqus configuration)
-* `ga_analytics` - set to your Google Analytics Tracking Id (NOTE: I may remove this in the future in favor of standard Hugo Google Analytics configuration)
-* `local_fonts` - set to true if you want to use fonts provided in this repository
-* `rss_enabled` - set to true if you want a link to RSS feed displayed in the nav header
-* `scrollappear_enabled` - set to true if you want page elements slowly fade in as you scroll the page
-* `blog_theme` - can be either 'light' or 'dark'
+* `about_enabled` - set to true if you wish to show an icon in the navigation that redirects to the about page.
+* `discus_identifier` - set to your Disqus identifier (NOTE: I may remove this in the future in favor of standard Hugo Disqus configuration).
+* `ga_analytics` - set to your Google Analytics Tracking Id (NOTE: I may remove this in the future in favor of standard Hugo Google Analytics configuration).
+* `local_fonts` - set to true if you want to use fonts provided in this repository.
+* `rss_enabled` - set to true if you want a link to RSS feed displayed in the nav header.
+* `scrollappear_enabled` - set to true if you want page elements slowly fade in as you scroll the page.
+* `blog_theme` - can be either 'light' or 'dark'.
 * `theme_toggle` - set to true if you want a dark/light switch in the nav header. If set to true, default scheme is always light.
 
 You can add your social accounts in `params.social` section of your config.toml:
@@ -115,7 +115,7 @@ $base-transition-speed: .2s;
 
 #### Fonts
 
-Chalk uses Google Fonts by default. You can change the font in `_assets/javascripts/webfonts.js` and in `404.html`.
+Chalk uses Google Fonts by default. You can change the font in `assets/javascripts/webfonts.js` and in `404.html`.
 
 ```javascript
 WebFont.load({
@@ -125,7 +125,7 @@ WebFont.load({
 });
 ```
 
-Don't forget that Chalk also supports local fonts if enabled in `config.yml`!
+Don't forget that Chalk also supports local fonts if enabled in `config.toml`!
 
 #### Zoomable images
 There's an `image` shortcode that allows you to insert Medium-style images that can be zoomed-in:
