@@ -14,8 +14,7 @@ Most of the theme features have been preserved, except for optional tag-based na
 
 To install Chalk as your default theme, first install this repository in the `themes/` directory:
 
-    $ cd themes/
-    $ git clone https://github.com/ph-ph/chalk.git
+    $ git submodule add https://github.com/ph-ph/chalk.git themes/chalk
 
 Second, specify `chalk` as your default theme in the `config.toml` file. Just add the line
 
