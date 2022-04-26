@@ -1,7 +1,10 @@
 # Chalk
 Chalk is a port of [Nielsen Ramon's Jekyll theme](https://github.com/nielsenramon/chalk) to [Hugo](https://gohugo.io) .
 
-Most of the theme features have been preserved, except for optional tag-based navigation.
+![screenshot](https://user-images.githubusercontent.com/1522475/165391492-23e093b8-e160-4673-8767-80e23977858e.jpeg)
+
+Most of the theme features have been preserved, except for optional tag-based navigation and theme-specific css for syntax highlighting.
+Demo website: https://chalk-hugo-demo.onrender.com/
 
 ## Contents
 
