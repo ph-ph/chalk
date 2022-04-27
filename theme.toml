@@ -4,8 +4,10 @@
 name = "Chalk"
 license = "MIT"
 licenselink = "https://github.com/ph-ph/chalk/blob/master/LICENSE"
-description = "A simple, clean, flexible Hugo theme"
+description = "Chalk, Hugo port of Nielsen Ramon's theme for Jekyll"
 homepage = "https://github.com/ph-ph/chalk/"
+
+demosite = "https://chalk-hugo-demo.onrender.com/"
 tags = ["Responsive", "Simple", "Clean", "Light", "White", "Blog"]
 features = ["Responsive", "One Column", "Blog"]
 min_version = "0.57.1"
